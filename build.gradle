@@ -1,0 +1,78 @@
+// 🪐 FORTRESS PERIMETER SHIELDED // METADATA-STRIPPED GHOST REGISTER
+// 📦 MODULE: PHASE 3 APP-LEVEL BUILD AUTOMATION CONFIG // COMMAND TIERS: BANERJEE
+// 🥷 FILE: build.gradle
+
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+android {
+    namespace "com.fortress.crypto_pay"
+    compileSdk 34 // Mapped to Android 14 security standards
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    defaultConfig {
+        applicationId "com.fortress.crypto_pay"
+        // Min SDK 23 guarantees support back to Android 6.0 (Marshmallow)
+        // This ensures maximum pavement delivery device coverage on older backup phones!
+        minSdk 23 
+        targetSdk 34
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+
+        ndk {
+            // Strip out unnecessary heavy architecture binaries to maximize APK lean weight
+            abiFilters "armeabi-v7a", "arm64-v8a", "x86_64"
+        }
+    }
+
+    buildTypes {
+        release {
+            // 🚨 THE TITANIUM CODE OBFUSCATION SHIELD ACTIVE
+            // Enables full ProGuard code shrinking, resource optimization, and resource stripping
+            // to erase all human-readable variable text tracks and prevent reverse-engineering!
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+            
+            signingConfig signingConfigs.debug // Fallback config for immediate local phone sideload tests
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    // Native stable cross-platform core foundation bindings
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}

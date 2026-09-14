@@ -1,0 +1,55 @@
+<!-- 🪐 FORTRESS PERIMETER SHIELDED // METADATA-STRIPPED GHOST REGISTER -->
+<!-- 📦 MODULE: PHASE 3 ANDROID HARDWARE SECURITY ENVELOPE // COMMAND TIERS: BANERJEE -->
+<!-- 🥷 FILE: AndroidManifest.xml -->
+
+<manifest xmlns:android="http://google.com"
+    package="com.fortress.crypto_pay">
+
+    <!-- 🟢 NATIVE HARDWARE LENS PORTS: ACCUMULATING ZERO-LATENCY OPTICAL CAMERA CAPTURE -->
+    <!-- Essential for reading street merchant stickers and external wallet strings instantly [S1] -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    
+    <!-- 🟢 HARDWARE FEATURE ENFORCEMENT CONTROL MATRIX -->
+    <!-- Declares camera feature usage background-level. setting required to 'false' ensures -->
+    <!-- the application package bundle remains 100% installable on older backup devices! [S1] -->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    
+    <!-- 🟢 INTERNET PORTS FOR PUBLIC BLOCKCHAIN BROADCAST VALVE ROUTING -->
+    <!-- Required to push signed cryptographic transaction hex fields directly to mainnet nodes [S1] -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:label="Crypto Pay"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher"
+        android:backgroundColor="#0D0E12"
+        android:theme="@style/LaunchTheme">
+        
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            
+            <!-- Specifies standard Flutter engine background initialization hooks -->
+            <meta-data
+                android:name="io.flutter.embedding.android.NormalTheme"
+                android:resource="@style/NormalTheme" />
+                
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        
+        <!-- Don't report text configuration variables or metadata parameters back to third-party plugins -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
+</manifest>
